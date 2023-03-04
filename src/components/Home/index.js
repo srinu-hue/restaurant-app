@@ -24,6 +24,24 @@ function Home() {
           items: 1
         }
       };
+    
+    const foodList = [
+        {id: 1,
+         name: 'Food 1',
+         pic: 'http://loremflickr.com/1800/1800/Food'
+        },
+        {id: 2,
+            name: 'Food 2',
+            pic: 'http://loremflickr.com/1800/1800/Food'
+        },
+        {id: 3,
+            name: 'Food 3',
+            pic: 'http://loremflickr.com/1800/1800/Food'
+           }
+
+    ]
+
+
     return (
         <div>
         <Carousel responsive={responsive}
@@ -43,8 +61,30 @@ function Home() {
         <div>
             <img src='http://loremflickr.com/1800/1600/Food'/>
         </div>
-      </Carousel>;
+      </Carousel>
 
+      <div>
+      <p className='p-4'>All Items</p>
+
+        <select onChange={(e) => console.log(e.target.value)} id='select' className='px-4 py-2 border border-2 rounded mx-4'>
+            <option value='Food'>Food</option>
+            <option value='two'>Coo2</option>
+            <option value='three'>Coo3</option>
+        </select>
+
+      </div>
+
+        <div className='flex flex-row justify-around px-6 mb-20'>
+      {foodList.map((eachitem) => 
+        <div key={eachitem.id} className='mt-6 grid grid-cols-3 gap-1'>
+            <div>
+            <img src={eachitem.pic} className='w-max'/>
+            <p>{eachitem.name}</p>
+            <p>{eachitem.price}</p>
+            </div>
+        </div>
+        )}
+        </div>
 
       
         </div>
