@@ -21,8 +21,8 @@ function Header(props) {
             <Link to='/cart'>
                 <p>Cart</p>
             </Link>
-            <Link to='/profile'>
-                <p>Profile</p>
+            <Link to='/login'>
+                <p>Login</p>
             </Link>
 
             </div>
