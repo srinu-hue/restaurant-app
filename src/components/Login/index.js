@@ -9,34 +9,39 @@ import Checkbox from '@mui/material/Checkbox';
 import { FormControlLabel } from '@mui/material';
 
 function Login(props) {
-    const {name, setName} = useState('')
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('')
+
+
     return (
-        <div className='flex flex-col justify-center items-center h-screen'>
+        <form className='flex flex-col justify-center items-center h-screen'>
             
             <p className='text-2xl mb-3 font-semibold'>Login to the Page</p>
             
             <TextField
             sx={{ margin: '6px', width: '50%' }}
-            id="name"
-            label="Name"
-            value={name}
-            // onChange={handleNameChange}
-        />
+            id="username"
+            label="Username"
+            value={username}
+            onChange={(event) => 
+                setUsername(event.target.value)
+            }        />
 
             <TextField
                  sx={{ margin: '6px', width: '50%' }}
+                 className='w-72'
                 id="outlined-controlled"
                 label="Password"
-                value={name}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                    setName(event.target.value)
+                value={password}
+                onChange={(event) => {
+                    setPassword(event.target.value)
                 }}
             />
             
             <FormControlLabel sx={{width: '48%'}} control={<Checkbox />} label="Save Password" />
-            <Button className='w-64' color="primary" variant="contained">Login</Button>
+            <Button onClick={() => console.log(username)} className='' sx={{width: '50%'}}  color="primary" variant="contained">Login</Button>
 
-        </div>
+        </form>
     )
 }
 
