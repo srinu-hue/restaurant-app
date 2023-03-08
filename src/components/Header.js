@@ -1,6 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, IconButton  } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import MenuIcon from "@material-ui/icons/Menu";
+import { Button } from '@mui/material';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -22,8 +26,25 @@ function Header() {
   return (
     <AppBar className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        <Typography variant="h6" className='blue-500'>Logo</Typography>
-        <Typography variant="h6">Menu</Typography>
+        <Link to='/'>
+            <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          className="focus:outline-none"
+        >
+        <MenuIcon />
+        </IconButton>
+        </Link>
+        <div>
+            <IconButton>
+                <ShoppingCartOutlinedIcon />
+            </IconButton>
+        <Link to='/login'>
+        <Button variant="contained">Login</Button>
+        </Link>
+
+        </div>
       </Toolbar>
     </AppBar>
   );

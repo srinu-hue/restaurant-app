@@ -7,11 +7,13 @@ import { useState } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 
 import { FormControlLabel } from '@mui/material';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function Login(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('')
 
+    const navigate = useNavigate()
 
     return (
         <form className='flex flex-col justify-center items-center h-screen'>
@@ -40,7 +42,7 @@ function Login(props) {
             />
             
             <FormControlLabel sx={{width: '48%'}} control={<Checkbox />} label="Save Password" />
-            <Button onClick={() => console.log(username)} className='' sx={{width: '50%'}}  color="primary" variant="contained">Login</Button>
+            <Button onClick={() => navigate('/')} className='' sx={{width: '50%'}}  color="primary" variant="contained">Login</Button>
 
         </form>
     )

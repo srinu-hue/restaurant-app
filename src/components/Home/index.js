@@ -1,10 +1,53 @@
 
 import React from 'react';
-import Carousel from 'react-multi-carousel';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-multi-carousel/lib/styles.css';
+import { makeStyles } from '@material-ui/core/styles';
+import { Button, IconButton } from '@material-ui/core';
 
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
+    padding: theme.spacing(2),
+  },
+  image: {
+    height: 300,
+    width: '100%',
+    objectFit: 'cover',
+  },
+}));
+
+const images = [
+  {
+    src:
+      'https://images.unsplash.com/photo-1504639725597-78f6ec6b5383?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGFwZXJzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',
+    alt: 'Image 1',
+  },
+  {
+    src:
+      'https://images.unsplash.com/photo-1559548331-6fca8e7d7e63?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhcGVyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
+    alt: 'Image 2',
+  },
+  {
+    src:
+      'https://images.unsplash.com/photo-1593642530411-ebd57fc37c59?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fHBhcGVyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
+    alt: 'Image 3',
+  },
+];
 
 function Home() {
+  const classes = useStyles();
+
     const responsive = {
         superLargeDesktop: {
           // the naming can be any, depends on you.
@@ -28,63 +71,144 @@ function Home() {
     const foodList = [
         {id: 1,
          name: 'Food 1',
-         pic: 'http://loremflickr.com/1800/1800/Food'
+         pic: 'http://loremflickr.com/1800/1800/Food',
+         price: 10,
         },
         {id: 2,
             name: 'Food 2',
-            pic: 'http://loremflickr.com/1800/1800/Food'
+            pic: 'http://loremflickr.com/1800/1800/Food',
+            price: 20,
         },
         {id: 3,
             name: 'Food 3',
-            pic: 'http://loremflickr.com/1800/1800/Food'
+            pic: 'http://loremflickr.com/1800/1800/Food',
+            price: 15,
+           },
+           {id: 4,
+            name: 'Food 3',
+            pic: 'http://loremflickr.com/1800/1800/Food',
+            price: 15,
+           },
+           {id: 5,
+            name: 'Food 3',
+            pic: 'http://loremflickr.com/1800/1800/Food',
+            price: 15,
+           },
+           {id: 6,
+            name: 'Food 3',
+            pic: 'http://loremflickr.com/1800/1800/Food',
+            price: 15,
            }
-
     ]
+
+    const blogList = [
+      {id: 1,
+       name: 'Blog 1',
+       pic: 'http://loremflickr.com/1800/1800/Food',
+       price: 10,
+      },
+      {id: 2,
+          name: 'Blog 2',
+          pic: 'http://loremflickr.com/1800/1800/Food',
+          price: 20,
+      },
+      {id: 3,
+          name: 'Blog 3',
+          pic: 'http://loremflickr.com/1800/1800/Food',
+          price: 15,
+         },
+        
+  ]
 
 
     return (
         <div>
-        <Carousel responsive={responsive}
-        infinite={true}
-        autoPlay={true}
-        autoPlaySpeed={3000}      
-        >
-        <div>
-            <img src='http://loremflickr.com/1800/1600/Food'/>
-        </div>
-        <div>
-            <img src='http://loremflickr.com/1800/1600/Food'/>
-        </div>
-        <div>
-            <img src='http://loremflickr.com/1800/1600/Food'/>
-        </div>
-        <div>
-            <img src='http://loremflickr.com/1800/1600/Food'/>
-        </div>
-      </Carousel>
+        <Carousel showThumbs={false} autoPlay infiniteLoop>
+          {foodList.map((image, index) => (
+            <div key={index}>
+            <img className={classes.image} src={image.pic} alt={image.alt} />
+            </div>
+          ))}
+        </Carousel>
 
       <div>
-      <p className='p-4'>All Items</p>
+      <p className='text-xl m-6 font-semibold text-center'>Our Menu</p>
+          <p className='mx-8'>
+          Menu paragraphs can help customers make informed choices about what to order, and can also help to promote certain dishes or ingredients. They are typically written in a concise and clear style, using language that is easy to understand and appealing to the reader.
+          </p>
+          <div className='my-8 mx-8 grid grid-cols-4 gap-3'>
+          <Button variant="outlined">Kebab</Button>      
+          <Button variant="outlined">Fast food</Button> 
+          <Button variant="outlined">Meals</Button> 
+          <Button variant="outlined">Drinks</Button>           
+     
+              </div>
+          
+          <div className='m-8 grid grid-cols-3 md:grid-cols-4 gap-3'>
+          {foodList.map((eachitem) => 
+            <div>
+              <Card>
+      <CardMedia
+        sx={{ height: 140 }}
+        image={eachitem.pic}
+        title="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {eachitem.name}
+        </Typography>
+        <div className='flex flex-row justify-between items-center'>
+        <Typography variant="h6" color="text.secondary">
+        £{eachitem.price}
+        </Typography>
+        <IconButton>
+        <ShoppingCartOutlinedIcon color='text.secondary'/>
+        </IconButton>
 
-        <select onChange={(e) => console.log(e.target.value)} id='select' className='px-4 py-2 border border-2 rounded mx-4'>
-            <option value='Food'>Food</option>
-            <option value='two'>Coo2</option>
-            <option value='three'>Coo3</option>
-        </select>
+        </div>
+      </CardContent>
+      <CardActions>
+
+      </CardActions>
+    </Card>
+            </div>
+          )}
+          </div>
 
       </div>
 
-        <div className='flex flex-row justify-around px-6 mb-20'>
-      {foodList.map((eachitem) => 
-        <div key={eachitem.id} className='mt-6 grid grid-cols-3 gap-1'>
+      <div>
+      <p className='text-xl m-8 font-semibold'>Know more about Arabic Food</p>
+                 
+          <div className='m-8 grid grid-cols-3 md:grid-cols-4 gap-3'>
+          {blogList.map((eachitem) => 
             <div>
-            <img src={eachitem.pic} className='w-max'/>
-            <p>{eachitem.name}</p>
-            <p>{eachitem.price}</p>
+              <Card>
+      <CardMedia
+        sx={{ height: 140 }}
+        image={eachitem.pic}
+        title="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {eachitem.name}
+        </Typography>
+        <div className='flex flex-row justify-between items-center'>
+        <Typography variant="h8" color="text.secondary">
+        In addition to describing individual dishes, menu paragraphs may also include information about the restaurant's
+        </Typography>
+        </div>
+      </CardContent>
+      <CardActions>
+
+      </CardActions>
+    </Card>
             </div>
-        </div>
-        )}
-        </div>
+          )}
+          </div>
+
+      </div>
+          
 
       
         </div>
