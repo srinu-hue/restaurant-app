@@ -32,6 +32,7 @@ function Login(props) {
                  className='w-72'
                 id="outlined-controlled"
                 label="Password"
+                type='password'
                 value={password}
                 onChange={(event) => {
                     setPassword(event.target.value)

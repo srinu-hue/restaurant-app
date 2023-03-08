@@ -1,33 +1,32 @@
-
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
-import { Link } from 'react-router-dom';
-import Logo from '../../src/assets/images/logo.png'
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: 'rgba(255, 255, 255, 0.15)', // sets the background color with opacity
+    backdropFilter: 'blur(10px)', // applies a blur effect to the background
+    boxShadow: 'none',
+    position: 'absolute',
+    width: '100%',
+    zIndex: '10', // ensures the appbar appears on top of other content
+  },
+  toolbar: {
+    justifyContent: 'space-between',
+  },
+}));
 
+function Header() {
+  const classes = useStyles();
 
-
-function Header(props) {
-    return (
-        <div className='bg-blue-800 text-white flex flex-row justify-between items-screen px-12 py-4 items-center'>
-            <div>
-                <Link to='/'>
-                <img className='w-20' 
-      src={Logo}
-      alt="new"
-      />
-                </Link>
-            </div>
-            <div className='grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-4'>
-            <Link to='/cart'>
-                <p>Cart</p>
-            </Link>
-            <Link to='/login'>
-                <p>Login</p>
-            </Link>
-
-            </div>
-        </div>
-    );
+  return (
+    <AppBar className={classes.appBar}>
+      <Toolbar className={classes.toolbar}>
+        <Typography variant="h6" className='blue-500'>Logo</Typography>
+        <Typography variant="h6">Menu</Typography>
+      </Toolbar>
+    </AppBar>
+  );
 }
 
 export default Header;
