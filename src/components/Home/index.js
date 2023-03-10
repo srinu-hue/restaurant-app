@@ -17,6 +17,12 @@ import CardActionArea from '@mui/material/CardActionArea';
 
 
 import Food from '../Food';
+import Footer from '../Footer';
+
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Link from '@mui/material/Link';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -135,7 +141,63 @@ function Home() {
           ))}
         </Carousel>
 
-      <div>
+        {/* Box */}
+        <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '',
+      }}
+    >
+      <Container component="main" sx={{ mt: 4, mb: 2 }} maxWidth="sm">
+        <Typography variant="h2" component="h1" gutterBottom>
+          Tasty Arabic 
+        </Typography>
+        <Typography variant="h5" component="h2" gutterBottom>
+          {'Pin a footer to the bottom of the viewport.'}
+          {'The footer will move as the main element of the page grows.'}
+        </Typography>
+
+      </Container>
+      
+      <Box
+        component="main"
+        sx={{
+          py: 2,
+          px: 2,
+          mt: 'auto',
+          backgroundColor: (theme) =>
+            theme.palette.mode === 'light'
+              ? theme.palette.grey[200]
+              : theme.palette.grey[800],
+              mt: 8, mb: 2 
+        }}
+      >
+        <Typography variant="h5" component="h5"  align='center'>
+          Our Menu 
+        </Typography>
+        <Typography variant="body1" align='center' maxWidth="sm" >
+            My sticky footer can be found here. Pin a footer to the bottom of the viewport.The footer will move as the main element of the page grows.
+          </Typography>
+         <div className='my-8 mx-8 grid grid-cols-4 gap-3'>
+          <Button variant="outlined">Kebab</Button>      
+          <Button variant="outlined">Fast food</Button> 
+          <Button variant="outlined">Meals</Button> 
+          <Button variant="outlined">Drinks</Button>           
+     
+              </div>
+          
+          <div className='m-8 grid grid-cols-3 md:grid-cols-4 gap-3'>
+          {foodList.map((eachitem) => 
+            <div>
+              <Food data={eachitem} key={eachitem.id}/>
+            </div>
+          )}
+          </div>
+      </Box>
+    </Box>
+
+      {/* <div>
       <p className='text-xl m-6 font-semibold text-center'>Our Menu</p>
           <p className='mx-8'>
           Menu paragraphs can help customers make informed choices about what to order, and can also help to promote certain dishes or ingredients. They are typically written in a concise and clear style, using language that is easy to understand and appealing to the reader.
@@ -156,7 +218,7 @@ function Home() {
           )}
           </div>
 
-      </div>
+      </div> */}
 
       <div>
         {/* Reviews */}
@@ -199,8 +261,8 @@ function Home() {
           </Grid>
 
       </div>
-          
-
+          <Footer />
+        
       
         </div>
     );
