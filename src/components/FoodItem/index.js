@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-function FoodItem(props) {
+function FoodItem() {
     return (
         <div>
             <p>FoodItem</p>

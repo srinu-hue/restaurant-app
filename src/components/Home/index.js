@@ -13,6 +13,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
+import Food from '../Food';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -147,30 +148,7 @@ function Home() {
           <div className='m-8 grid grid-cols-3 md:grid-cols-4 gap-3'>
           {foodList.map((eachitem) => 
             <div>
-              <Card>
-      <CardMedia
-        sx={{ height: 140 }}
-        image={eachitem.pic}
-        title="green iguana"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {eachitem.name}
-        </Typography>
-        <div className='flex flex-row justify-between items-center'>
-        <Typography variant="h6" color="text.secondary">
-        £{eachitem.price}
-        </Typography>
-        <IconButton>
-        <ShoppingCartOutlinedIcon color='text.secondary'/>
-        </IconButton>
-
-        </div>
-      </CardContent>
-      <CardActions>
-
-      </CardActions>
-    </Card>
+              <Food data={eachitem} key={eachitem.id}/>
             </div>
           )}
           </div>
