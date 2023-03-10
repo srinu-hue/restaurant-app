@@ -19,7 +19,6 @@ const Food = (props) => {
     }
 
     return(
-        <button id={data.id} onClick={handleEvent}>
     <Card value={data.name}>
       <CardMedia
         sx={{ height: 140 }}
@@ -44,7 +43,6 @@ const Food = (props) => {
 
       </CardActions>
     </Card>
-        </button>
     )
 }
 
