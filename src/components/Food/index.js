@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Button, IconButton } from '@material-ui/core';
+import CardActionArea from '@mui/material/CardActionArea';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -15,10 +16,11 @@ const Food = (props) => {
     console.log(data)
 
     const handleEvent = (e) => {
-        console.log(e.target.value)
+        console.log(e.target.id)
     }
 
     return(
+      <CardActionArea component="a" href="#" onClick={handleEvent}>
     <Card value={data.name}>
       <CardMedia
         sx={{ height: 140 }}
@@ -43,6 +45,7 @@ const Food = (props) => {
 
       </CardActions>
     </Card>
+    </CardActionArea>
     )
 }
 
