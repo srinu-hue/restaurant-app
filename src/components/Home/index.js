@@ -12,6 +12,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import Grid from '@mui/material/Grid';
+import CardActionArea from '@mui/material/CardActionArea';
+
 
 import Food from '../Food';
 
@@ -156,18 +159,29 @@ function Home() {
       </div>
 
       <div>
+        {/* Reviews */}
+        <p className='text-xl m-8 font-semibold'>Reviews from our customer</p>
+        <p className='mx-8'>
+          Menu paragraphs can help customers make informed choices about what to order, and can also help to promote certain dishes or ingredients. They are typically written in a concise and clear style, using language that is easy to understand and appealing to the reader.
+        </p>
+
+
+      </div>
+
+      <div>
       <p className='text-xl m-8 font-semibold'>Know more about Arabic Food</p>
-                 
-          <div className='m-8 grid grid-cols-3 md:grid-cols-4 gap-3'>
+
+          <Grid item xs={12} md={6}>    
+          <div className='m-8'>
           {blogList.map((eachitem) => 
-            <div>
-              <Card>
+            <CardActionArea component="a" href="#" sx={{marginY: 4}}>
+              <Card sx={{display: 'flex'}}>
       <CardMedia
-        sx={{ height: 140 }}
+        sx={{height: 140, flex: 1}}
         image={eachitem.pic}
         title="green iguana"
       />
-      <CardContent>
+      <CardContent sx={{flex: 2}}>
         <Typography gutterBottom variant="h5" component="div">
           {eachitem.name}
         </Typography>
@@ -177,13 +191,12 @@ function Home() {
         </Typography>
         </div>
       </CardContent>
-      <CardActions>
-
-      </CardActions>
+ 
     </Card>
-            </div>
+            </CardActionArea>
           )}
           </div>
+          </Grid>
 
       </div>
           
