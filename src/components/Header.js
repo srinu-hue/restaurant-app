@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import MenuIcon from "@material-ui/icons/Menu";
 import { Button } from '@mui/material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-
+import OtherHousesIcon from '@mui/icons-material/OtherHouses';
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: 'rgba(255, 255, 255, 0.15)', // sets the background color with opacity
@@ -33,7 +33,7 @@ function Header() {
           aria-label="menu"
           className="focus:outline-none"
         >
-        <MenuIcon />
+        <OtherHousesIcon color='primary' />
         </IconButton>
         </Link>
         <div>
