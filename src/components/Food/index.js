@@ -6,22 +6,24 @@ import Typography from '@mui/material/Typography';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Button, IconButton } from '@material-ui/core';
 import CardActionArea from '@mui/material/CardActionArea';
+import ButtonBase from '@material-ui/core/ButtonBase';
 
 import { useNavigate } from 'react-router-dom';
 
+
 const Food = (props) => {
-    const {data} = props
+    const {data, foodOnclick} = props
 
     const navigate = useNavigate()
-    console.log(data)
-
-    const handleEvent = (e) => {
-        console.log(e.target.id)
+    const handleEvent = (event) => {
+      foodOnclick(event.currentTarget.id)
+      navigate(`/food/${event.currentTarget.id}`)
     }
 
     return(
-      <CardActionArea component="a" href="#" onClick={handleEvent}>
-    <Card value={data.name}>
+    <Card key={data.id} value={data.name} onClick={handleEvent} clickable={true} id={data.id}>
+    <CardActionArea component="a" id={data.id} href="" >
+        
       <CardMedia
         sx={{ height: 140 }}
         image={data.pic}
@@ -38,14 +40,10 @@ const Food = (props) => {
         <IconButton>
         <ShoppingCartOutlinedIcon color='text.secondary'/>
         </IconButton>
-
         </div>
       </CardContent>
-      <CardActions>
-
-      </CardActions>
+      </CardActionArea>
     </Card>
-    </CardActionArea>
     )
 }
 
