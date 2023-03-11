@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-multi-carousel/lib/styles.css';
@@ -22,7 +22,7 @@ import Footer from '../Footer';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
+import { Link, useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -57,6 +57,8 @@ const images = [
 
 function Home() {
   const classes = useStyles();
+
+  const [linkId, setLinkId] = useState(null)
 
     const responsive = {
         superLargeDesktop: {
@@ -126,9 +128,18 @@ function Home() {
           name: 'Blog 3',
           pic: 'http://loremflickr.com/1800/1800/Food',
           price: 15,
-         },
-        
+         },    
   ]
+  const navigate = useNavigate()
+
+  const foodOnclick = (props) => {
+
+    // console.log('cool ' + props)
+    setLinkId(props)
+    // navigate('/food/${props}')
+  }
+
+  console.log(linkId)
 
 
     return (
@@ -190,8 +201,8 @@ function Home() {
           <div className='m-8 grid grid-cols-3 md:grid-cols-4 gap-3'>
           {foodList.map((eachitem) => 
             <div>
-              <Food data={eachitem} key={eachitem.id}/>
-            </div>
+              <Food foodOnclick={foodOnclick} data={eachitem} key={eachitem.id}/>
+              </div>
           )}
           </div>
       </Box>

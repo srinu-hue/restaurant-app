@@ -24,7 +24,7 @@ function Header() {
   const classes = useStyles();
 
   return (
-    <AppBar className={classes.appBar}>
+    <AppBar className={classes.appBar} position='static'>
       <Toolbar className={classes.toolbar}>
         <Link to='/'>
             <IconButton
