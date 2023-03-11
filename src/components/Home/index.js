@@ -181,7 +181,6 @@ function Home() {
             theme.palette.mode === 'light'
               ? theme.palette.grey[200]
               : theme.palette.grey[800],
-              mt: 8, mb: 2 
         }}
       >
         <Typography variant="h5" component="h5"  align='center'>
@@ -208,29 +207,6 @@ function Home() {
       </Box>
     </Box>
 
-      {/* <div>
-      <p className='text-xl m-6 font-semibold text-center'>Our Menu</p>
-          <p className='mx-8'>
-          Menu paragraphs can help customers make informed choices about what to order, and can also help to promote certain dishes or ingredients. They are typically written in a concise and clear style, using language that is easy to understand and appealing to the reader.
-          </p>
-          <div className='my-8 mx-8 grid grid-cols-4 gap-3'>
-          <Button variant="outlined">Kebab</Button>      
-          <Button variant="outlined">Fast food</Button> 
-          <Button variant="outlined">Meals</Button> 
-          <Button variant="outlined">Drinks</Button>           
-     
-              </div>
-          
-          <div className='m-8 grid grid-cols-3 md:grid-cols-4 gap-3'>
-          {foodList.map((eachitem) => 
-            <div>
-              <Food data={eachitem} key={eachitem.id}/>
-            </div>
-          )}
-          </div>
-
-      </div> */}
-
       <div>
         {/* Reviews */}
         <p className='text-xl m-8 font-semibold'>Reviews from our customer</p>
@@ -244,13 +220,13 @@ function Home() {
       <div>
       <p className='text-xl m-8 font-semibold'>Know more about Arabic Food</p>
 
-          <Grid item xs={12} md={6}>    
+          <Grid item xs={8} md={3}>    
           <div className='m-8'>
           {blogList.map((eachitem) => 
             <CardActionArea component="a" href="#" sx={{marginY: 4}}>
               <Card sx={{display: 'flex'}}>
       <CardMedia
-        sx={{height: 140, flex: 1}}
+        sx={{height: 200, flex: 1}}
         image={eachitem.pic}
         title="green iguana"
       />

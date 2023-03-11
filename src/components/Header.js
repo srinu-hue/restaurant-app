@@ -37,9 +37,12 @@ function Header() {
         </IconButton>
         </Link>
         <div>
+        <Link to='/cart'>
             <IconButton>
                 <ShoppingCartOutlinedIcon />
             </IconButton>
+          </Link>
+          
         <Link to='/login'>
         <Button variant="contained">Login</Button>
         </Link>

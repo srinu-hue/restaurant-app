@@ -1,11 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, Box, Container, Typography, Card, CardActionArea, CardMedia, CardContent, CardActions, Button } from '@material-ui/core';
 import { useParams } from 'react-router-dom';
 
 import { red } from '@mui/material/colors';
 
 import { useNavigate } from 'react-router-dom';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const foodList = [
     {id: 1,
@@ -41,7 +43,8 @@ const foodList = [
 ]
 
 function FoodItem() {
-
+    const [items, setItems] = useState(0)
+    
     const {id} = useParams()
     let num = id
 
@@ -51,12 +54,14 @@ function FoodItem() {
     
     console.log(foodId.name)
 
+    {items < 0 && setItems(0)}
+
 
     return(
         foodId ?
-            <Container className='pt-20' maxWidth="sm" >
+            <Container className='pt-20' maxWidth="md" >
             <Grid container spacing={2} component="main" maxWidth="sm" sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', mt: 4, mb: 2 }}>
-                <Grid xs={4}>
+                <Grid xs={5}>
                 <CardMedia
                     component="img"
                     image="https://images.unsplash.com/photo-1612392062798-4117917fcc50?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
@@ -64,22 +69,27 @@ function FoodItem() {
                     />
                 </Grid>
                 
-                <Grid  xs={8} className='pl-8'>   
+                <Grid xs={7} className='pl-10'>   
                 <Typography variant="h4" component="h4" gutterBottom>
                     {foodId.name}
                 </Typography>
-                <Typography variant="h5" color='textSecondary' component="h5" gutterBottom>
+                <Typography variant="h5" color='textSecondary' component="h5" gutterBottom sx={{ mb: 2 }}>
                     £{foodId.price}
                 </Typography>
                 {/* <Button onClick={() => navigate('/cart')} variant="contained" color="secondary">Login</Button> */}
 
-                <Grid container spacing={3} sx={{paddingTop: 10}}>
-                <Button xs={1} variant="contained" color="secondary">+</Button>
-                <Typography xs={1} className='px-3' variant="h5" color='textSecondary' component="h5" gutterBottom>
-                    0
+                <Grid container spacing={5} sx={{paddingTop: 10}} gutterTop>
+                <Button onClick={() => setItems(items - 1)}  xs={1} variant="outlined" color="secondary">
+                    <RemoveIcon fontSize="inherit" />
+                </Button>
+                <Typography xs={1} className='px-3' variant="h5" xs={2} color='textSecondary' component="h5" gutterBottom>
+                    {items}
                 </Typography>
-                <Button xs={1} variant="contained" color="secondary">-</Button>
+                <Button onClick={() => setItems(items + 1)} variant="outlined" xs={1} color="secondary">
+                    <AddIcon fontSize="inherit" />
+                </Button>
                 </Grid>
+                
                 </Grid> 
                 </Grid>
                 <Typography  variant="h6" component="h2" gutterBottom className='pt-20'>
