@@ -3,39 +3,12 @@ import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-multi-carousel/lib/styles.css';
-import { makeStyles } from '@material-ui/core/styles';
-import { Button, IconButton } from '@material-ui/core';
-
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import Grid from '@mui/material/Grid';
-import CardActionArea from '@mui/material/CardActionArea';
 
 
 import Food from '../Food';
 import Footer from '../Footer';
 
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import { Link, useNavigate } from 'react-router-dom';
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    backgroundColor: 'transparent',
-    boxShadow: 'none',
-    padding: theme.spacing(2),
-  },
-  image: {
-    height: 300,
-    width: '100%',
-    objectFit: 'cover',
-  },
-}));
 
 const images = [
   {
@@ -56,7 +29,6 @@ const images = [
 ];
 
 function Home() {
-  const classes = useStyles();
 
   const [linkId, setLinkId] = useState(null)
 
