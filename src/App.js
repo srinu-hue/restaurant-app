@@ -7,6 +7,7 @@ import FoodItem from './components/FoodItem';
 import Profile from './components/Profile';
 import ProtectedRoute from './components/ProtectedRoute.js';
 import Login from './components/Login';
+import Start from './components/Start'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/Food/:id' element={<FoodItem/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/login' element={<Login />}/>
+        <Route exact path='/start' element={<Start />}/>
       </Routes>
     </BrowserRouter>
   );
